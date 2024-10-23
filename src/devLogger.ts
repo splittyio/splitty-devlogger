@@ -1,21 +1,36 @@
 import { ILogger } from './interfaces/ILogger';
 
 class DevLogger implements ILogger {
+    private isProduction: boolean;
+
+    constructor() {
+        // Check if the environment is production
+        this.isProduction = process.env.NODE_ENV === 'production';
+    }
+
 
     log(...params: any[]): void {
-        console.log(...params);
+        if (!this.isProduction) {
+            console.log(...params);
+        }
     }
 
     warn(...params: any[]): void {
-        console.warn(...params);
+        if (!this.isProduction) {
+            console.warn(...params);
+        }
     }
 
     info(...params: any[]): void {
-        console.info(...params);
+        if (!this.isProduction) {
+            console.info(...params);
+        }
     }
 
     error(...params: any[]): void {
-        console.error(...params);
+        if (!this.isProduction) {
+            console.error(...params);
+        }
     }
 }
 
