@@ -1,8 +1,5 @@
 import process from 'process';
 import {ILogger} from './interfaces/ILogger';
-import * as dotenv from 'dotenv';
-
-dotenv.config();
 
 export class RemoteLogger implements ILogger {
     private endpoint: string;
@@ -14,9 +11,9 @@ export class RemoteLogger implements ILogger {
     private timer: ReturnType<typeof setInterval> | null = null;
 
 
-    constructor(endpoint?: string, batchSize = 10, batchInterval = 5000, maxRetries = 3) {
+    constructor(endpoint: string, batchSize = 10, batchInterval = 5000, maxRetries = 3) {
         // Use environment variable if no endpoint is provided
-        this.endpoint = endpoint || process.env.LOGGING_ENDPOINT || '';
+        this.endpoint = endpoint;
         this.isProduction = process.env.NODE_ENV === 'production';
         this.maxRetries = maxRetries;
         this.batchSize = batchSize;
