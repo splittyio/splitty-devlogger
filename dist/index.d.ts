@@ -1,2 +1,4 @@
-export { devLogger as dev } from './devLogger';
-export { remoteLogger as remote } from './remoteLogger';
+import { RemoteLogger } from './remoteLogger';
+import { DevLogger } from './devLogger';
+export declare const dev: DevLogger;
+export declare const remote: RemoteLogger;

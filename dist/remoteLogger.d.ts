@@ -1,12 +1,13 @@
 import { ILogger } from './interfaces/ILogger';
-declare class RemoteLogger implements ILogger {
+export declare class RemoteLogger implements ILogger {
     private endpoint;
+    private isProduction;
     private maxRetries;
     private logQueue;
     private batchSize;
     private batchInterval;
     private timer;
-    constructor(endpoint: string, batchSize?: number, batchInterval?: number, maxRetries?: number);
+    constructor(endpoint?: string, batchSize?: number, batchInterval?: number, maxRetries?: number);
     private sendBatch;
     private enqueueLog;
     private startBatching;
@@ -16,5 +17,3 @@ declare class RemoteLogger implements ILogger {
     info(...params: any[]): void;
     error(...params: any[]): void;
 }
-export declare const remoteLogger: RemoteLogger;
-export {};

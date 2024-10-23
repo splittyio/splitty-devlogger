@@ -1,18 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.devLogger = void 0;
+exports.DevLogger = void 0;
 class DevLogger {
+    constructor() {
+        // Check if the environment is production
+        this.isProduction = process.env.NODE_ENV === 'production';
+    }
     log(...params) {
-        console.log(...params);
+        if (!this.isProduction) {
+            console.log(...params);
+        }
     }
     warn(...params) {
-        console.warn(...params);
+        if (!this.isProduction) {
+            console.warn(...params);
+        }
     }
     info(...params) {
-        console.info(...params);
+        if (!this.isProduction) {
+            console.info(...params);
+        }
     }
     error(...params) {
-        console.error(...params);
+        if (!this.isProduction) {
+            console.error(...params);
+        }
     }
 }
-exports.devLogger = new DevLogger();
+exports.DevLogger = DevLogger;

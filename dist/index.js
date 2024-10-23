@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.remote = exports.dev = void 0;
-var devLogger_1 = require("./devLogger");
-Object.defineProperty(exports, "dev", { enumerable: true, get: function () { return devLogger_1.devLogger; } });
-var remoteLogger_1 = require("./remoteLogger");
-Object.defineProperty(exports, "remote", { enumerable: true, get: function () { return remoteLogger_1.remoteLogger; } });
+const remoteLogger_1 = require("./remoteLogger");
+const devLogger_1 = require("./devLogger");
+// Create a singleton instance of DevLogger
+exports.dev = new devLogger_1.DevLogger();
+exports.remote = new remoteLogger_1.RemoteLogger();
