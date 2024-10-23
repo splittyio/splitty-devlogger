@@ -1,15 +1,19 @@
+import process from 'process';
 import { ILogger } from './interfaces/ILogger';
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 class RemoteLogger implements ILogger {
     private endpoint: string;
     private maxRetries: number;
     private logQueue: Array<{ level: string, message: any[] }> = [];
     private batchSize: number;
     private batchInterval: number;  // in milliseconds
-    private timer: number | null = null;
+    private timer: ReturnType<typeof setInterval> | null = null;
 
-    constructor(endpoint: string, batchSize = 10, batchInterval = 5000, maxRetries = 3) {
-        this.endpoint = endpoint;
+
+    constructor(endpoint?: string, batchSize = 10, batchInterval = 5000, maxRetries = 3) {
+        // Use environment variable if no endpoint is provided
+        this.endpoint = endpoint || process.env.LOGGING_ENDPOINT || '';
         this.maxRetries = maxRetries;
         this.batchSize = batchSize;
         this.batchInterval = batchInterval;
@@ -52,6 +56,7 @@ class RemoteLogger implements ILogger {
     private startBatching(): void {
         if (this.timer) return;
 
+        // Start the interval timer
         this.timer = setInterval(() => {
             this.sendBatch();
         }, this.batchInterval);
@@ -85,4 +90,4 @@ class RemoteLogger implements ILogger {
     }
 }
 
-export const remoteLogger = new RemoteLogger('https://my.marriage365.com/api/logging');
+export const remoteLogger = new RemoteLogger();
