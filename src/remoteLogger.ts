@@ -1,7 +1,9 @@
 import process from 'process';
-import { ILogger } from './interfaces/ILogger';
+import {ILogger} from './interfaces/ILogger';
 import * as dotenv from 'dotenv';
+
 dotenv.config();
+
 class RemoteLogger implements ILogger {
     private endpoint: string;
     private maxRetries: number;
@@ -46,7 +48,7 @@ class RemoteLogger implements ILogger {
     }
 
     private enqueueLog(level: string, message: any[]): void {
-        this.logQueue.push({ level, message });
+        this.logQueue.push({level, message});
 
         if (this.logQueue.length >= this.batchSize) {
             this.sendBatch();
