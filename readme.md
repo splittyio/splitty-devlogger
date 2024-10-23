@@ -1,5 +1,4 @@
 <h2>Dev Logger - TypeScript Logging Utility with Remote Logging and Batching</h2>
-<hr>
 <h2>Dev Logger</h2><p><code>dev-logger</code> is a flexible and extensible logging utility written in TypeScript. It
     provides both local and remote logging capabilities with support for error handling and batching. The package can be
     used in any TypeScript or JavaScript project, including Node.js, web applications, and React Native.</p><h2>
