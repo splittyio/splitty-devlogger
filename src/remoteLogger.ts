@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-class RemoteLogger implements ILogger {
+export class RemoteLogger implements ILogger {
     private endpoint: string;
     private isProduction: boolean;
     private maxRetries: number;
@@ -108,4 +108,4 @@ class RemoteLogger implements ILogger {
     }
 }
 
-export const remoteLogger = new RemoteLogger();
+

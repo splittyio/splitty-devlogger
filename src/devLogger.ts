@@ -1,6 +1,6 @@
 import { ILogger } from './interfaces/ILogger';
 
-class DevLogger implements ILogger {
+export class DevLogger implements ILogger {
     private isProduction: boolean;
 
     constructor() {
@@ -33,5 +33,3 @@ class DevLogger implements ILogger {
         }
     }
 }
-
-export const devLogger = new DevLogger();
