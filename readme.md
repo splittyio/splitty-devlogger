@@ -15,7 +15,7 @@ TypeScript. It
     <li><strong>Batching</strong>: Collects logs and sends them in batches to reduce the number of network requests.
     </li>
 </ul><h2>Installation</h2><p>You can install this package directly from GitHub or NPM.</p><h3>Install from GitHub</h3>
-<pre><code>npm install git+https://github.com/yourusername/dev-logger.git</code></pre><h3>Install from NPM (if
+<pre><code>npm install git+https://github.com/splittyio/dev-logger.git</code></pre><h3>Install from NPM (if
     published)</h3>
 <pre><code>npm install dev-logger</code></pre><h2>Usage</h2><p>The package provides two types of loggers: a local logger
     (<code>dev</code>) and a remote logger (<code>remote</code>). Both loggers implement the same interface, making it
