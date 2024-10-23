@@ -7,7 +7,7 @@ export declare class RemoteLogger implements ILogger {
     private batchSize;
     private batchInterval;
     private timer;
-    constructor(endpoint?: string, batchSize?: number, batchInterval?: number, maxRetries?: number);
+    constructor(endpoint: string, batchSize?: number, batchInterval?: number, maxRetries?: number);
     private sendBatch;
     private enqueueLog;
     private startBatching;
